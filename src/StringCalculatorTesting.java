@@ -42,11 +42,17 @@ class StringCalculatorTesting {
 	
 	@Test 
 	void test5() throws Exception{
-		//
+		//Handling Negative values
 		assertEquals(1, StringCalculator.Add("1,-2"));
 		assertEquals(0, StringCalculator.Add("-1,-2"));
 		
 	}
 	
-	
+	@Test 
+	void test6() throws Exception{
+		//Handling Negative values
+		assertEquals(0, StringCalculator.Add("-1,-2"));
+		assertEquals(1, StringCalculator.Add("1,-2,-3"));
+	}
+		
 }

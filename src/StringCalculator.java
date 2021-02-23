@@ -23,7 +23,6 @@ public class StringCalculator {
             inString = inString.substring(4);
 
         }
-
 		
 		inString = inString.replaceAll("\n",delimiter); 
         for (int i = 0; i < inString.length(); i++) {  
@@ -31,18 +30,23 @@ public class StringCalculator {
             inS = inString.split(delimiter);		
         }
         
-        for (int i = 0; i < inS.length; i++) { 
-        	try {
-        		//To handle negative value events
+        try {
+        	//To handle negative value events
+        for (int i = 0; i < inS.length; i++) {         		
         		if(Integer.parseInt(inS[i])<0) {
         			throw new Exception();
         		}
-        	}
-        		catch(Exception ex){
-        			System.out.println("negatives not allowed " + inS[i]);
-        			continue;
+        		sum += Integer.parseInt(inS[i]);
         		}
-        	sum += Integer.parseInt(inS[i]);
+        	}catch(Exception ex){
+        		String errMsg = "negatives not allowed ";
+        			for(int i=0;i<inS.length;i++) {        				
+                        if (Integer.parseInt(inS[i]) < 0) {
+                        	errMsg += inS[i] + " ";
+                        }
+        			}
+        			//This will print all the present negative values
+        			System.out.println(errMsg);
         	}
         
         //The final sum value returned
