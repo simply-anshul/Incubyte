@@ -13,8 +13,16 @@ public class StringCalculator {
 			return Integer.parseInt(inString);
 		}
 		
+        if (inString.charAt(0) == '/' && inString.charAt(1) == '/'){
+        	//We will identify the delimiter here
+            delimiter = String.valueOf(inString.charAt(2));
+            //Getting the true string with only numbers and delimiters
+            inString = inString.substring(4);
+
+        }
+
 		
-		inString = inString.replaceAll("\n",","); 
+		inString = inString.replaceAll("\n",delimiter); 
         for (int i = 0; i < inString.length(); i++) {  
             inS = inString.split(delimiter);		//Split the elements by delimiter
         }
@@ -25,5 +33,4 @@ public class StringCalculator {
 
 
 		return sum;	}
-	
 }

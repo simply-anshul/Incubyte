@@ -28,8 +28,16 @@ class StringCalculatorTesting {
 	@Test
 	void test3() {
 		//Handle new lines
-		//assertEquals(6, StringCalculator.Add("1\n2,3"));
+		assertEquals(6, StringCalculator.Add("1\n2,3"));
 		assertEquals(10, StringCalculator.Add("1,2\n3,4"));
+	}
+	
+	@Test
+	void test4() {
+		//Support Different Delimiters
+		assertEquals(3, StringCalculator.Add("//;\n1;2"));
+		assertEquals(6, StringCalculator.Add("//:\n1:2:3"));
+		assertEquals(10, StringCalculator.Add("//'\n1'2'3'4"));
 	}
 	
 	
