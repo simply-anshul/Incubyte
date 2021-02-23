@@ -24,4 +24,23 @@ class StringCalculatorTesting {
 		//Unknown number of elements
 		assertEquals(6, StringCalculator.Add("1,2,3"));
 	}
+	
+	@Test
+	void test3() {
+		//Handle new lines
+		//assertEquals(6, StringCalculator.Add("1\n2,3"));
+		assertEquals(10, StringCalculator.Add("1,2\n3,4"));
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

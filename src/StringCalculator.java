@@ -12,6 +12,9 @@ public class StringCalculator {
 		else if(inString.length()==1) {
 			return Integer.parseInt(inString);
 		}
+		
+		
+		inString = inString.replaceAll("\n",","); 
         for (int i = 0; i < inString.length(); i++) {  
             inS = inString.split(delimiter);		//Split the elements by delimiter
         }
