@@ -23,13 +23,18 @@ class StringCalculatorTesting {
 	void test2() throws Exception {
 		//Unknown number of elements
 		assertEquals(6, StringCalculator.Add("1,2,3"));
+		assertEquals(10, StringCalculator.Add("1,2,3,4"));
+		assertEquals(14, StringCalculator.Add("2,3,4,5"));
+		assertEquals(42, StringCalculator.Add("2,4,6,8,10,12"));
 	}
 	
 	@Test
 	void test3() throws Exception {
-		//Handle new lines
+		//Handle new lines between numbers
 		assertEquals(6, StringCalculator.Add("1\n2,3"));
 		assertEquals(10, StringCalculator.Add("1,2\n3,4"));
+		assertEquals(10, StringCalculator.Add("1,2,3\n4"));
+		assertEquals(14, StringCalculator.Add("2\n3,4,5"));		
 	}
 	
 	@Test
@@ -38,14 +43,14 @@ class StringCalculatorTesting {
 		assertEquals(3, StringCalculator.Add("//;\n1;2"));
 		assertEquals(6, StringCalculator.Add("//:\n1:2:3"));
 		assertEquals(10, StringCalculator.Add("//'\n1'2'3'4"));
+		assertEquals(3, StringCalculator.Add("// \n1 2"));
 	}
 	
 	@Test 
 	void test5() throws Exception{
 		//Handling Negative values
 		assertEquals(1, StringCalculator.Add("1,-2"));
-		assertEquals(0, StringCalculator.Add("-1,-2"));
-		
+		assertEquals(1, StringCalculator.Add("1,-2,-3"));
 	}
 	
 	@Test 
