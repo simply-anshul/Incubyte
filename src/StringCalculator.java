@@ -1,7 +1,13 @@
 
 public class StringCalculator {
+	private int callCount=0;
+	public int calculateCount() {
+		return callCount;
+	}
 
-	public static int Add(String inString) throws Exception {
+	public int Add(String inString) throws Exception {
+		++callCount;
+		
 		//Sum to calculate
 		int sum = 0;								  
 		//For delimiter split string
@@ -15,6 +21,7 @@ public class StringCalculator {
 		else if(inString.length()==1) {
 			return Integer.parseInt(inString);
 		}
+		
 		
         if (inString.charAt(0) == '/' && inString.charAt(1) == '/'){
         	//We will identify the delimiter here
