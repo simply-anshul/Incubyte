@@ -43,6 +43,10 @@ public class StringCalculator {
         		if(Integer.parseInt(inS[i])<0) {
         			throw new Exception();
         		}
+        		if(Integer.parseInt(inS[i])>=1000) {
+        			//Ignore if the number is greater than 1000
+        			continue;
+        		}
         		sum += Integer.parseInt(inS[i]);
         		}
         	}catch(Exception ex){

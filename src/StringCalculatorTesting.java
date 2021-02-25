@@ -56,7 +56,7 @@ class StringCalculatorTesting {
 	
 	@Test 
 	void test6() throws Exception{
-		//Handling Negative values
+		//Handling multiple Negative values
 		assertEquals(0, C.Add("-1,-2"));
 		assertEquals(1, C.Add("1,-2,-3"));
 	}
@@ -68,7 +68,16 @@ class StringCalculatorTesting {
 //        C.Add("12");
 //        assertEquals(1, C.calculateCount());
     }
-    
+
+	@Test 
+	void test8() throws Exception{
+		//Handling numbers greater than 1000
+		assertEquals(1, C.Add("1,1001"));
+		assertEquals(1, C.Add("1,-2,5050"));
+		assertEquals(3, C.Add("1,1001,2,2000"));
+		assertEquals(0, C.Add("9000"));
+	}
+	
 	@Test
 	void test10() throws Exception {
 		//Support Different Delimiters
