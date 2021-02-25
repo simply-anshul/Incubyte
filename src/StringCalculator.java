@@ -8,6 +8,7 @@ public class StringCalculator {
 	public int Add(String inString) throws Exception {
 		++callCount;
 		
+		
 		//Sum to calculate
 		int sum = 0;								  
 		//For delimiter split string
@@ -21,20 +22,21 @@ public class StringCalculator {
 		else if(inString.length()==1) {
 			return Integer.parseInt(inString);
 		}
-		
-//        if (number.charAt(0) == '/' && number.charAt(1) == '/') {
-//            delimiter = number.split("\n")[0];
-//            delimiter = delimiter.substring(3, delimiter.length() - 1);
-//            number = number.substring(3 + delimiter.length() + 2);
-//            delimiter = Pattern.quote(delimiter);
-		
-		
+			
         if (inString.charAt(0) == '/' && inString.charAt(1) == '/'){
-        	//We will identify the delimiter here
-            delimiter = inString.split("\n")[0];
-            delimiter = delimiter.substring(3, delimiter.length() - 1);
-            //Getting the true string with only numbers and delimiters
-            inString = inString.substring(3 + delimiter.length() + 2);
+        	 String delimiters = inString.split("\n")[0];
+             String secondDelimiter = null;
+             //Find delimiter
+             delimiter = delimiters.substring(3, inString.indexOf("]"));
+             delimiters = delimiters.substring(inString.indexOf("]") + 1);
+             // Multiple delimiter
+             inString = inString.substring(inString.indexOf("\n") + 1);
+             // Next delimiter
+             if (delimiters.charAt(0) == '[')
+                 secondDelimiter = delimiters.substring(1, delimiters.length() - 1);
+
+             if (secondDelimiter != null)
+                 inString = inString.replaceAll(Pattern.quote(secondDelimiter), delimiter);
             delimiter = Pattern.quote(delimiter);
         }
 		
@@ -68,4 +70,5 @@ public class StringCalculator {
         //The final sum value returned
 		return sum;	
 		}
+		
 }
