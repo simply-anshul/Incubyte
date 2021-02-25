@@ -1,4 +1,4 @@
-
+import java.util.regex.Pattern;
 public class StringCalculator {
 	private int callCount=0;
 	public int calculateCount() {
@@ -22,20 +22,25 @@ public class StringCalculator {
 			return Integer.parseInt(inString);
 		}
 		
+//        if (number.charAt(0) == '/' && number.charAt(1) == '/') {
+//            delimiter = number.split("\n")[0];
+//            delimiter = delimiter.substring(3, delimiter.length() - 1);
+//            number = number.substring(3 + delimiter.length() + 2);
+//            delimiter = Pattern.quote(delimiter);
+		
 		
         if (inString.charAt(0) == '/' && inString.charAt(1) == '/'){
         	//We will identify the delimiter here
-            delimiter = String.valueOf(inString.charAt(2));
+            delimiter = inString.split("\n")[0];
+            delimiter = delimiter.substring(3, delimiter.length() - 1);
             //Getting the true string with only numbers and delimiters
-            inString = inString.substring(4);
-
+            inString = inString.substring(3 + delimiter.length() + 2);
+            delimiter = Pattern.quote(delimiter);
         }
 		
 		inString = inString.replaceAll("\n",delimiter); 
-        for (int i = 0; i < inString.length(); i++) {  
         	//Split the elements by delimiter
             inS = inString.split(delimiter);		
-        }
         
         try {
         	//To handle negative value events
